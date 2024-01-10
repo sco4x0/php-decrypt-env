@@ -8,7 +8,7 @@ WORKDIR /tmp/php-screw
 RUN phpize && ./configure && make && make install && docker-php-ext-enable php_screw
 WORKDIR /tmp/php-screw/tools
 RUN make && cp screw /usr/bin/screw
-COPY ./html /var/www/html
+COPY ./html/index.php /var/www/html/index.php
 WORKDIR /var/www/html
 RUN /usr/bin/screw index.php && \
     mv index.php.screw source.php
