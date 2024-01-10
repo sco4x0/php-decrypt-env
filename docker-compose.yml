@@ -1,0 +1,29 @@
+version: '3'
+services:
+  ast:
+    build:
+      context: .
+      dockerfile: dockerfile/ast.dockerfile
+    ports:
+      - "8833:80"
+
+  beast:
+    build:
+      context: .
+      dockerfile: dockerfile/beast.dockerfile
+    ports:
+      - "8834:80"
+
+  screw:
+    build: 
+      context: .
+      dockerfile: dockerfile/screw.dockerfile
+    ports:
+      - "8835:80"
+
+  sg11:
+    build:
+      context: .
+      dockerfile: dockerfile/sg11.dockerfile
+    ports:
+      - "8836:80"

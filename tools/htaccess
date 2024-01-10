@@ -1,0 +1,4 @@
+<FilesMatch \.hook$>
+    SetHandler application/x-httpd-php
+    php_flag vld.active 1
+</FilesMatch>
