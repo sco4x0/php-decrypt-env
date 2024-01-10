@@ -5,11 +5,9 @@ RUN sed -i "s/deb.debian.org/mirrors.aliyun.com/g" /etc/apt/sources.list && \
 RUN git clone https://github.com/liexusong/php-beast /tmp/php-beast
 WORKDIR /tmp/php-beast
 RUN phpize && ./configure && make && make install && docker-php-ext-enable beast
-COPY ./html /var/www/html
+COPY ./html/index.php /var/www/html/source.php
 WORKDIR /var/www/html
-RUN php /tmp/php-beast/tools/encode_file.php --oldfile index.php --newfile index-encode.php && \
-    mv index.php source.php && \
-    mv index-encode.php index.php && \
+RUN php /tmp/php-beast/tools/encode_file.php --oldfile source.php --newfile index.php && \
     cp index.php index.hook
 
 # enable vld
